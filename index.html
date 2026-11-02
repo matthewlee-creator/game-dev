@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hearts of Iron IV Web Strategy (1936-1955)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="top-bar">
+    <div class="top-bar-section">
+      <strong>Nation:</strong> <span id="ui-nation">German Reich</span>
+      <span class="divider">|</span>
+      <strong>Ideology:</strong> <span id="ui-ideology">Fascism</span>
+    </div>
+    <div class="top-bar-section">
+      <strong>Date:</strong> <span id="ui-date">1936-01-01</span>
+    </div>
+    <div class="top-bar-section controls">
+      <button id="btn-pause">Play</button>
+      <button onclick="window.gameInstance.setSpeed(1)">1x</button>
+      <button onclick="window.gameInstance.setSpeed(3)">3x</button>
+      <button onclick="window.gameInstance.setSpeed(5)">5x</button>
+      <button id="btn-save">Save Game</button>
+    </div>
+  </div>
+
+  <div id="main-container">
+    <div id="sidebar">
+      <h2>National Overview</h2>
+      <div class="stat-card">
+        <p><strong>Stability:</strong> <span id="ui-stability">85.0%</span></p>
+        <p><strong>War Exhaustion:</strong> <span id="ui-war-exhaustion">0.0%</span></p>
+      </div>
+
+      <h3>Factories & Industry</h3>
+      <div class="stat-card">
+        <p><strong>Civilian Factories:</strong> <span id="ui-civ-fac">35</span></p>
+        <p><strong>Military Factories:</strong> <span id="ui-mil-fac">28</span></p>
+        <p><strong>Naval Dockyards:</strong> <span id="ui-dockyards">10</span></p>
+      </div>
+
+      <h3>Active Production Lines</h3>
+      <div id="production-list" class="stat-card">
+        <div class="prod-item">Infantry Equipment: 15/day</div>
+        <div class="prod-item">Light Tanks: 4/day</div>
+      </div>
+
+      <h3>Resources Balance</h3>
+      <div id="resource-list" class="stat-card">
+        <p>Steel: <span id="ui-steel">120</span></p>
+        <p>Aluminum: <span id="ui-aluminum">40</span></p>
+        <p>Oil: <span id="ui-oil">10</span></p>
+        <p>Rubber: <span id="ui-rubber">5</span></p>
+      </div>
+    </div>
+
+    <div id="map-viewport">
+      <canvas id="hoi4Canvas" width="900" height="600"></canvas>
+      <div id="map-instructions">
+        Click a province to select. Click an adjacent province to issue movement/attack commands.
+      </div>
+    </div>
+  </div>
+
+  <!-- Game Engine Modules -->
+  <script src="combat-engine.js"></script>
+  <script src="trade-engine.js"></script>
+  <script src="ai-engine.js"></script>
+  <script src="event-engine.js"></script>
+  <script src="map-renderer.js"></script>
+  <script src="game-engine.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
